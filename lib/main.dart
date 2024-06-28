@@ -1,3 +1,4 @@
+import 'package:chatfacilito/presentation/screens/chat_list.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -81,27 +82,31 @@ class MyApp extends StatelessWidget {
                     decoration: InputDecoration(
                         labelText: 'Password', hintText: 'Enter your password', border: UnderlineInputBorder()),
                   ),
-
-                  
                   Container(
                     padding: const EdgeInsets.only(top: 30, bottom: 30),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Row(
                           children: [
                             Expanded(
-                              child: ElevatedButton(
-                                onPressed: null,
-                                child: Text(
-                                  'Log in',
-                                  style: TextStyle(color: Colors.black45, fontWeight: FontWeight.w800),
-                                ),
+                              child: Builder(builder: (context) {
+                                return ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(builder: (context) => const ChatList()));
+                                  },
+                                  child: const Text(
+                                    'Log in',
+                                    style: TextStyle(color: Colors.black45, fontWeight: FontWeight.w800),
+                                  ),
+                                );
+                              }
                               ),
                             ),
                           ],
                         ),
-                        Text(
+                        const Text(
                           "Forgot password?",
                           style: TextStyle(fontWeight: FontWeight.w500, color: Colors.green),
                         ),
