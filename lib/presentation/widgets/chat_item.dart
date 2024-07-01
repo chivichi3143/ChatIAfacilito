@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 void main() => runApp(const ChatItem());
 
@@ -10,7 +9,9 @@ class ChatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-      decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: Color.fromARGB(255, 219, 219, 219)))),
+      decoration: const BoxDecoration(
+          border: Border(
+              bottom: BorderSide(color: Color.fromARGB(255, 219, 219, 219)))),
       child: Row(
         children: [
           Image.asset(
@@ -46,12 +47,15 @@ class ChatItem extends StatelessWidget {
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(top: 5), // Espacio de 20 píxeles arriba
+                      padding: EdgeInsets.only(
+                          top: 5), // Espacio de 20 píxeles arriba
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
-                      decoration:
-                          const BoxDecoration(color: Colors.red, borderRadius: BorderRadius.all(Radius.circular(20))),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 9, vertical: 3),
+                      decoration: const BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: const Text(
                         '1',
                         textAlign: TextAlign.center,
