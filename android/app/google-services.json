@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "125591103691",
+    "project_id": "chatfacilito-bdbbe",
+    "storage_bucket": "chatfacilito-bdbbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125591103691:android:ec8c9e9d88d8c01ba8134e",
+        "android_client_info": {
+          "package_name": "com.example.chatfacilito"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP9yNKDA1rj5hr9TfhOhVYozT-aMUmZXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
