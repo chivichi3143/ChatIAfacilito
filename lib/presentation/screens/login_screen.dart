@@ -1,4 +1,4 @@
-import 'package:chatfacilito/presentation/screens/chat_list.dart';
+import 'package:chatiafacilito/presentation/screens/chat_list.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {

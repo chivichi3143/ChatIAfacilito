@@ -1,4 +1,4 @@
-import 'package:chatfacilito/presentation/widgets/chat_item.dart';
+import 'package:chatiafacilito/presentation/widgets/chat_item.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const ChatList());
@@ -22,7 +22,8 @@ class ChatList extends StatelessWidget {
         destinations: const <NavigationDestination>[
           NavigationDestination(icon: Icon(Icons.message), label: 'Messages'),
           NavigationDestination(icon: Icon(Icons.phone), label: 'Calls'),
-          NavigationDestination(icon: Icon(Icons.person_2_outlined), label: 'Contacts'),
+          NavigationDestination(
+              icon: Icon(Icons.person_2_outlined), label: 'Contacts'),
           NavigationDestination(icon: Icon(Icons.settings), label: 'Settings')
         ],
       ),

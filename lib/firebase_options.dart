@@ -13,7 +13,7 @@ import 'package:flutter/foundation.dart'
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
-/// ```
+
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -41,48 +41,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyArRRP3uUGw86wxksvrpHZwuGkCe6IG24c',
-    appId: '1:125591103691:web:465537c671ec610da8134e',
-    messagingSenderId: '125591103691',
-    projectId: 'chatfacilito-bdbbe',
-    authDomain: 'chatfacilito-bdbbe.firebaseapp.com',
-    storageBucket: 'chatfacilito-bdbbe.appspot.com',
-    measurementId: 'G-4PVJBCYN1L',
+    apiKey: 'AIzaSyCQZyY8siH6-aNVyE_bD5sLWzVdLbXNZ9M',
+    appId: '1:445215285041:web:6377d70c65d904cb5d9a10',
+    messagingSenderId: '445215285041',
+    projectId: 'chatiafacilito',
+    authDomain: 'chatiafacilito.firebaseapp.com',
+    storageBucket: 'chatiafacilito.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBP9yNKDA1rj5hr9TfhOhVYozT-aMUmZXo',
-    appId: '1:125591103691:android:ec8c9e9d88d8c01ba8134e',
-    messagingSenderId: '125591103691',
-    projectId: 'chatfacilito-bdbbe',
-    storageBucket: 'chatfacilito-bdbbe.appspot.com',
+    apiKey: 'AIzaSyC0J2QOH5dAM4Pk_ntdrAb4dtwTNLavDbM',
+    appId: '1:445215285041:android:f6b50e19c44841185d9a10',
+    messagingSenderId: '445215285041',
+    projectId: 'chatiafacilito',
+    storageBucket: 'chatiafacilito.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAvihru4XL29U4tpu92p7yFnEEmuLN-tok',
-    appId: '1:125591103691:ios:a896ced1d53e442ca8134e',
-    messagingSenderId: '125591103691',
-    projectId: 'chatfacilito-bdbbe',
-    storageBucket: 'chatfacilito-bdbbe.appspot.com',
-    iosBundleId: 'com.example.chatfacilito',
+    apiKey: 'AIzaSyCBXeXesXXwWZnQ3JHNB9QvEfMYtIdnnRQ',
+    appId: '1:445215285041:ios:d2d8d9c43f6dc71e5d9a10',
+    messagingSenderId: '445215285041',
+    projectId: 'chatiafacilito',
+    storageBucket: 'chatiafacilito.appspot.com',
+    iosBundleId: 'com.example.chatiafacilito',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAvihru4XL29U4tpu92p7yFnEEmuLN-tok',
-    appId: '1:125591103691:ios:a896ced1d53e442ca8134e',
-    messagingSenderId: '125591103691',
-    projectId: 'chatfacilito-bdbbe',
-    storageBucket: 'chatfacilito-bdbbe.appspot.com',
-    iosBundleId: 'com.example.chatfacilito',
+    apiKey: 'AIzaSyCBXeXesXXwWZnQ3JHNB9QvEfMYtIdnnRQ',
+    appId: '1:445215285041:ios:d2d8d9c43f6dc71e5d9a10',
+    messagingSenderId: '445215285041',
+    projectId: 'chatiafacilito',
+    storageBucket: 'chatiafacilito.appspot.com',
+    iosBundleId: 'com.example.chatiafacilito',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyArRRP3uUGw86wxksvrpHZwuGkCe6IG24c',
-    appId: '1:125591103691:web:178eb2106ccb7cbfa8134e',
-    messagingSenderId: '125591103691',
-    projectId: 'chatfacilito-bdbbe',
-    authDomain: 'chatfacilito-bdbbe.firebaseapp.com',
-    storageBucket: 'chatfacilito-bdbbe.appspot.com',
-    measurementId: 'G-S65MQYD502',
+    apiKey: 'AIzaSyCQZyY8siH6-aNVyE_bD5sLWzVdLbXNZ9M',
+    appId: '1:445215285041:web:ff64da509f3450b85d9a10',
+    messagingSenderId: '445215285041',
+    projectId: 'chatiafacilito',
+    authDomain: 'chatiafacilito.firebaseapp.com',
+    storageBucket: 'chatiafacilito.appspot.com',
   );
 }
