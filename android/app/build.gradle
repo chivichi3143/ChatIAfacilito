@@ -3,8 +3,8 @@ plugins {
     // START: FlutterFire Configuration
     id 'com.google.gms.google-services'
     // END: FlutterFire Configuration
-    id "kotlin-android"
-    id "dev.flutter.flutter-gradle-plugin"
+    id "kotlin-android" 
+    id "dev.flutter.flutter-gradle-plugin" 
 }
 
 def localProperties = new Properties()
@@ -26,7 +26,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.chatfacilito"
+    namespace "com.example.chatiafacilito"
     compileSdk flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -44,11 +44,12 @@ android {
     }
 
     defaultConfig {
+        compileSdkVersion 34
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.chatfacilito"
+        applicationId "com.example.chatiafacilito"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -67,4 +68,7 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    // val kotlinVersion = "1.8.22"
+//     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$jvmTarget")
+ }

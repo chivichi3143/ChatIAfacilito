@@ -1,7 +1,7 @@
-import 'package:chatfacilito/images/assets.dart';
+import 'package:chatiafacilito/images/assets.dart';
+import 'package:chatiafacilito/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:chatfacilito/presentation/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
             FadeTransition(
               opacity: _animationOpacity,
               child: const Text(
-                'Chat Facilito',
+                'ChatIAFacilito',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
