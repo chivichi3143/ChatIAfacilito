@@ -1,32 +1,33 @@
-import 'package:chatiafacilito/presentation/widgets/chat_item.dart';
 import 'package:flutter/material.dart';
+import 'package:chatiafacilito/presentation/widgets/field_box.dart';
 
 void main() => runApp(const ChatList());
 
 class ChatList extends StatelessWidget {
   const ChatList({super.key});
 
+  printMessage(message) {
+    print(message);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Chats'),
-      ),
-      body: ListView.builder(
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return const ChatItem();
-        },
-      ),
-      bottomNavigationBar: NavigationBar(
-        destinations: const <NavigationDestination>[
-          NavigationDestination(icon: Icon(Icons.message), label: 'Messages'),
-          NavigationDestination(icon: Icon(Icons.phone), label: 'Calls'),
-          NavigationDestination(
-              icon: Icon(Icons.person_2_outlined), label: 'Contacts'),
-          NavigationDestination(icon: Icon(Icons.settings), label: 'Settings')
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: const Text('ChatIAFacilito'),
+        ),
+        body: Column(
+          children: [
+            const Expanded(child: Text('hola')),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                children: [
+                  Expanded(child: FieldBox(onValue: printMessage)),
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }

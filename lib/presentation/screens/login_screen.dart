@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   const TextField(
                     keyboardType: TextInputType.emailAddress,
@@ -46,7 +46,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   const TextField(
                     obscureText: true,
@@ -56,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(top: 30, bottom: 30),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [

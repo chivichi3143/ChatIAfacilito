@@ -44,6 +44,6 @@ class AppTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(20),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)))));
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)))));
   }
 }
