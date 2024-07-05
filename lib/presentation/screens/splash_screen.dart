@@ -1,6 +1,7 @@
 import 'package:chatiafacilito/images/assets.dart';
 import 'package:chatiafacilito/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -51,12 +52,13 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Lottie.asset(splashMainLottieImage),
+            Lottie.asset(splashMainLottieImage, width: 250),
+            const SizedBox(height: 10),
             FadeTransition(
               opacity: _animationOpacity,
-              child: const Text(
+              child: Text(
                 'ChatIAFacilito',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: GoogleFonts.oswald(textStyle: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
               ),
             ),
           ],

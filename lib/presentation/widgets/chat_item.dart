@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const ChatItem());
-
 class ChatItem extends StatelessWidget {
   const ChatItem({super.key});
 
