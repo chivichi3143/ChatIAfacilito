@@ -12,7 +12,20 @@
           "package_name": "com.example.chatiafacilito"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "445215285041-qavdtjf45rtjvdqtccqu7ggblu8is9v2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatiafacilito",
+            "certificate_hash": "f62c07d6f1e3e6237df762d0ac9a214a3294982b"
+          }
+        },
+        {
+          "client_id": "445215285041-f7etb1ff0b4vc0dtjm507t7dvaohnan5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC0J2QOH5dAM4Pk_ntdrAb4dtwTNLavDbM"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445215285041-f7etb1ff0b4vc0dtjm507t7dvaohnan5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "445215285041-tlat0g5ejvusov39pakheqq4ns5e7bea.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chatiafacilito"
+              }
+            }
+          ]
         }
       }
     }

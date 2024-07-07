@@ -1,126 +1,195 @@
+import 'package:chatiafacilito/config/theme/app_theme.dart';
+import 'package:chatiafacilito/features/forgot_pw_page.dart';
 import 'package:chatiafacilito/presentation/screens/chat_list.dart';
+import 'package:chatiafacilito/presentation/screens/register_screen.dart';
+import 'package:chatiafacilito/presentation/widgets/email_field.dart';
+import 'package:chatiafacilito/presentation/widgets/login/auth_google_button.dart';
+import 'package:chatiafacilito/presentation/widgets/login/forgot_password_button.dart';
+import 'package:chatiafacilito/presentation/widgets/login/form_header.dart';
+import 'package:chatiafacilito/presentation/widgets/login/login_separator.dart';
+import 'package:chatiafacilito/presentation/widgets/square_tile.dart';
+import 'package:chatiafacilito/services/auth_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  final Function()? onTap;
+  const LoginScreen({super.key, required this.onTap});
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void wrongEmailMessage(String message) {
+    Widget okButton = TextButton(
+      child: const Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+    AlertDialog alert = AlertDialog(
+      title: const Text("Oops! Intentalo de nuevo!"),
+      content: Text(message),
+      actions: [
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (context) {
+        return alert;
+      },
+    );
+  }
+
+  // sign user in method
+  void signUserIn() async {
+    // show loading circle
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+
+    // try sign in
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      FirebaseFirestore.instance
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .set({
+        'uid': userCredential.user!.uid,
+        'email': userCredential.user!.email,
+      }, SetOptions(merge: true));
+      // pop the loading circle
+      Navigator.of(context).pop();
+    } on FirebaseAuthException catch (e) {
+      // pop the loading circle
+      Navigator.of(context).pop();
+      // WRONG EMAIL
+
+      wrongEmailMessage(e.message.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme().theme(),
       home: Scaffold(
         body: Center(
           child: FractionallySizedBox(
             widthFactor: 0.80,
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 25),
-                    child: Text(
-                      'Log in to ChatFacilito',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                    ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 25),
+                  child: Text(
+                    '      Log in to\n ChatIAFacilito',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                   ),
-                  const Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Welcome back! Sign in using your social account or email to continue',
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(color: Color.fromARGB(255, 146, 146, 147)),
-                    ),
+                ),
+                const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Bienvenido! Inicia sesión con google o con tu correo!',
+                    textAlign: TextAlign.center,
                   ),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
-                    margin: const EdgeInsets.symmetric(vertical: 25),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.black, width: 1.0)),
-                    child: Image.asset(
-                      'assets/images/google.png',
-                    ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    labelText: 'Correo',
+                    hintText: 'Ingresa tu correo',
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 25),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Divider(
-                            color: Colors.grey, // Color de la línea
-                            thickness: 1, // Grosor de la línea
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                  controller: passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Contraseña',
+                    hintText: 'Ingresa tu contraseña',
+                  ),
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ForgotPasswordButton(),
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Builder(builder: (context) {
+                              return ElevatedButton(
+                                onPressed: () {
+                                  signUserIn();
+                                },
+                                child: const Text(
+                                  'Log in',
+                                ),
+                              );
+                            }),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 15),
-                          child: Text(
-                            'OR',
+                        ],
+                      ),
+                      const SizedBox(height: 25),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Not a member?',
+                            style: TextStyle(color: Colors.white),
                           ),
-                        ),
-                        Expanded(
-                          child: Divider(
-                            color: Colors.grey, // Color de la línea
-                            thickness: 1, // Grosor de la línea
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                        labelText: 'Email',
-                        hintText: 'Enter your email',
-                        border: UnderlineInputBorder()),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        labelText: 'Password',
-                        hintText: 'Enter your password',
-                        border: UnderlineInputBorder()),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 30, bottom: 30),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Builder(builder: (context) {
-                                return ElevatedButton(
-                                  onPressed: () {
-                                    // Asegúrate de tener la navegación y la pantalla de ChatList configuradas correctamente
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) => ChatList()));
-                                  },
-                                  child: const Text(
-                                    'Log in',
-                                    style: TextStyle(
-                                        color: Colors.black45,
-                                        fontWeight: FontWeight.w800),
-                                  ),
-                                );
-                              }),
+                          const SizedBox(width: 10),
+                          GestureDetector(
+                            onTap: widget.onTap,
+                            child: const Text(
+                              'Register now',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 110, 24, 248),
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ],
-                        ),
-                        const Text(
-                          "Forgot password?",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, color: Colors.green),
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                      const LoginSeparator(),
+                      SquareTile(
+                          onTap: () => {AuthService().signInWithGoogle()},
+                          imagePath: 'assets/images/google.png'),
+                    ],
                   ),
-                ]),
+                ),
+              ],
+            ),
           ),
         ),
       ),
