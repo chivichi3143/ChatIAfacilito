@@ -6,7 +6,7 @@ class LoginSeparator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: EdgeInsets.symmetric(vertical: 15),
       child: Row(
         children: [
           Expanded(

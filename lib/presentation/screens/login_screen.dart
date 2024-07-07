@@ -1,8 +1,11 @@
 import 'package:chatiafacilito/config/theme/app_theme.dart';
 import 'package:chatiafacilito/features/forgot_pw_page.dart';
 import 'package:chatiafacilito/presentation/screens/chat_list.dart';
-import 'package:chatiafacilito/presentation/widgets/login/auth_button.dart';
+import 'package:chatiafacilito/presentation/screens/register_screen.dart';
+import 'package:chatiafacilito/presentation/widgets/email_field.dart';
+import 'package:chatiafacilito/presentation/widgets/login/auth_google_button.dart';
 import 'package:chatiafacilito/presentation/widgets/login/forgot_password_button.dart';
+import 'package:chatiafacilito/presentation/widgets/login/form_header.dart';
 import 'package:chatiafacilito/presentation/widgets/login/login_separator.dart';
 import 'package:chatiafacilito/presentation/widgets/square_tile.dart';
 import 'package:chatiafacilito/services/auth_service.dart';
