@@ -1,33 +1,26 @@
+import 'package:chatiafacilito/services/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../../../features/google_login.dart';
 
 class AuthButton extends StatelessWidget {
   final String image;
-  const AuthButton({super.key, required this.image});
+  const AuthButton({Key? key, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.only(top: 8, bottom: 8),
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey), borderRadius: const BorderRadius.all(Radius.circular(15))),
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  image,
-                ),
-                const Text(
-                  "Google",
-                  style: TextStyle(fontSize: 15),
-                )
-              ],
-            ),
-          ),
+    return ElevatedButton(
+      onPressed: () async {
+        AuthService().signInWithGoogle();
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
-      ],
+      ),
+      child: Image.asset(image),
     );
   }
 }

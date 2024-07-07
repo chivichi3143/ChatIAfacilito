@@ -18,7 +18,7 @@ class LoginSeparator extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Text(
-              'Or Continue With',
+              'Inicia con',
             ),
           ),
           Expanded(
