@@ -6,7 +6,7 @@ class ForgotPasswordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 15),
       child: Text(
         "Forgot password?",
         style: TextStyle(fontWeight: FontWeight.w500, color: Colors.deepPurple.shade200),
