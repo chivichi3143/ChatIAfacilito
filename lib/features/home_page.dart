@@ -30,15 +30,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 20,
         toolbarHeight: 60,
         shadowColor: Colors.black,
-        backgroundColor: Colors.grey,
+        // backgroundColor: Colors.grey,
         title: Text(
           "Bienvenido ${user.email!.split('@')[0]}",
-          style: const TextStyle(fontSize: 16),
         ),
         actions: [
           IconButton(

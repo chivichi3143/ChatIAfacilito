@@ -78,39 +78,43 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      appBar: AppBar(backgroundColor: Colors.grey[300]),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25.0),
-            child: Text(
-              "Enter email",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
-            ),
+      appBar: AppBar(title: const Text("Recuperar contraseña"), centerTitle: true),
+      body: Center(
+        child: FractionallySizedBox(
+          widthFactor: 0.90,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.0),
+                child: Text(
+                  "Ingresa tu email para reestablecer tu contraseña",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+
+              const SizedBox(height: 12),
+
+              //email textfield
+              CustomTextField(
+                controller: emailController,
+                hintText: 'Email',
+                obscureText: false,
+              ),
+
+              const SizedBox(height: 12),
+
+              // Reset pwd button
+              CustomButton(
+                text: 'Reset Password',
+                onTap: passwordReset,
+              ),
+
+              const SizedBox(height: 150),
+            ],
           ),
-
-          const SizedBox(height: 12),
-
-          //email textfield
-          CustomTextField(
-            controller: emailController,
-            hintText: 'Email',
-            obscureText: false,
-          ),
-
-          const SizedBox(height: 12),
-
-          // Reset pwd button
-          CustomButton(
-            text: 'Reset Password',
-            onTap: passwordReset,
-          ),
-
-          const SizedBox(height: 150),
-        ],
+        ),
       ),
     );
   }

@@ -22,15 +22,19 @@ class _GeminiChatState extends State<GeminiChat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Chat AI Facilito"), centerTitle: true),
+      // appBar: AppBar(title: const Text("Chat AI Facilito"), centerTitle: true),
       body: _buildDash(),
     );
   }
 
   Widget _buildDash() {
     return DashChat(
-      inputOptions: InputOptions(trailing: [
-        IconButton(onPressed: _sendMediaMessage, icon: const Icon(Icons.image))
+      inputOptions: InputOptions(inputDecoration: const InputDecoration(hintText: 'Escribe un mensaje'), trailing: [
+        IconButton(
+          onPressed: _sendMediaMessage,
+          icon: const Icon(Icons.image),
+          color: Colors.deepPurple.shade200,
+        )
       ]),
       currentUser: chatUser,
       onSend: _sendMessage,

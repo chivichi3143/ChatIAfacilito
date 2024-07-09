@@ -15,11 +15,11 @@ const List<Color> _colorThemes = [
 class AppTheme {
   ThemeData theme() {
     return ThemeData(
+        brightness: Brightness.dark,
         useMaterial3: false,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple, brightness: Brightness.dark),
-        textTheme: TextTheme(
-          displayMedium: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.amber),
-          bodyMedium: GoogleFonts.poppins(),
+        textTheme: const TextTheme(
+          displayMedium: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.amber),
         ),
         inputDecorationTheme: InputDecorationTheme(
           border: const OutlineInputBorder(),
