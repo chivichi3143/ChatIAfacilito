@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 25),
                   child: Text(
-                    '      Log in to\n ChatIAFacilito',
+                    'Inicia sesión en \n ChatIAFacilito',
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                   ),
                 ),
@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   signUserIn();
                                 },
                                 child: const Text(
-                                  'Log in',
+                                  'Iniciar sesión',
                                 ),
                               );
                             }),
@@ -164,17 +164,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'Not a member?',
+                          const Text(
+                            'Aún no tienes cuenta?',
                             style: TextStyle(color: Colors.white),
                           ),
                           const SizedBox(width: 10),
                           GestureDetector(
                             onTap: widget.onTap,
-                            child: const Text(
-                              'Register now',
+                            child: Text(
+                              'Registrate ahora',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 110, 24, 248),
+                                color: Colors.deepPurple.shade200,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

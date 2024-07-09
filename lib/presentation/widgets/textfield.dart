@@ -1,3 +1,4 @@
+import 'package:chatiafacilito/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -14,7 +15,7 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = AppTheme().theme();
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),

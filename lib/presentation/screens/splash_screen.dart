@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen>
     _animationController.reverse().then((value) async {
       await Future.delayed(const Duration(milliseconds: 500));
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => AuthPage()));
+          .pushReplacement(MaterialPageRoute(builder: (context) => const AuthPage()));
     });
   }
 
@@ -57,11 +57,9 @@ class _SplashScreenState extends State<SplashScreen>
             const SizedBox(height: 10),
             FadeTransition(
               opacity: _animationOpacity,
-              child: Text(
+              child: const Text(
                 'ChatIAFacilito',
-                style: GoogleFonts.oswald(
-                    textStyle: const TextStyle(
-                        fontSize: 30, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
           ],
