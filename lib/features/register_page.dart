@@ -100,7 +100,8 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Registrate en ChatIAFacilito"), centerTitle: true),
+      appBar: AppBar(
+          title: const Text("Registrate en ChatIAFacilito"), centerTitle: true),
       // resizeToAvoidBottomInset: false,
       body: Center(
         child: SingleChildScrollView(
@@ -128,7 +129,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     obscureText: true,
                   ),
                 ),
-        
+
                 // Confirm password textfield
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15.0),
@@ -144,19 +145,21 @@ class _RegisterPageState extends State<RegisterPage> {
                   text: 'Sign Up',
                   onTap: signUserUp,
                 ),
-                
+
                 Container(
-                  padding: const EdgeInsets.only(bottom: 25, left: 25, right: 25),
+                  padding:
+                      const EdgeInsets.only(bottom: 25, left: 25, right: 25),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const LoginSeparator(),
                       SquareTile(
-                          onTap: () => {AuthService().signInWithGoogle()}, imagePath: 'assets/images/google.png'),
+                          onTap: () => {AuthService().signInWithGoogle()},
+                          imagePath: 'assets/images/google.png'),
                     ],
                   ),
                 ),
-        
+
                 Padding(
                   padding: const EdgeInsets.only(bottom: 15.0),
                   child: Row(
@@ -164,7 +167,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     children: [
                       const Text(
                         'Ya tienes una cuenta?',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
                       ),
                       const SizedBox(width: 10),
                       GestureDetector(

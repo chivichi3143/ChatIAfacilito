@@ -4,11 +4,13 @@ import 'package:chatiafacilito/services/auth_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   Gemini.init(apiKey: "AIzaSyAixGsf63vwWdcCC5KP8c7k5B-RIaoyBg4");
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(brightness: Brightness.dark),
+      // theme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
     );

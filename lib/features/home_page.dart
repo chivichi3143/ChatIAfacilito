@@ -24,8 +24,8 @@ class _HomePageState extends State<HomePage> {
   int index = 0;
   final screens = [
     const GeminiChat(),
-    const ChatList(),
-    const ProfilePage(),
+    // const ChatList(),
+    // const ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
