@@ -46,10 +46,10 @@ class _GeminiChatState extends State<GeminiChat> {
     return DashChat(
       inputOptions: InputOptions(trailing: [
         IconButton(onPressed: _sendMediaMessage, icon: const Icon(Icons.image)),
-        ElevatedButton(
-          onPressed: _showInterstitialAd,
-          child: Text('Mostrar Anuncio Intersticial'),
-        ),
+        // ElevatedButton(
+        //   onPressed: _showInterstitialAd,
+        //   child: Text('Mostrar Anuncio Intersticial'),
+        // ),
       ]),
       currentUser: chatUser,
       onSend: _sendMessage,
