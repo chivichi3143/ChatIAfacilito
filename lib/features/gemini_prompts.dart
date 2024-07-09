@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class GeminiChat extends StatefulWidget {
   const GeminiChat({super.key});
@@ -18,6 +19,20 @@ class _GeminiChatState extends State<GeminiChat> {
   List<ChatMessage> messages = [];
   ChatUser chatUser = ChatUser(id: "0", firstName: "User");
   ChatUser geminiUser = ChatUser(id: "1", firstName: "Gemini");
+  bool _isInterstitialAdReady = false;
+  InterstitialAd? _interstitialAd;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadInterstitialAd();
+  }
+
+  @override
+  void dispose() {
+    _interstitialAd?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +44,12 @@ class _GeminiChatState extends State<GeminiChat> {
 
   Widget _buildDash() {
     return DashChat(
-      inputOptions: InputOptions(inputDecoration: const InputDecoration(hintText: 'Escribe un mensaje'), trailing: [
-        IconButton(
-          onPressed: _sendMediaMessage,
-          icon: const Icon(Icons.image),
-          color: Colors.deepPurple.shade200,
-        )
+      inputOptions: InputOptions(trailing: [
+        IconButton(onPressed: _sendMediaMessage, icon: const Icon(Icons.image)),
+        ElevatedButton(
+          onPressed: _showInterstitialAd,
+          child: Text('Mostrar Anuncio Intersticial'),
+        ),
       ]),
       currentUser: chatUser,
       onSend: _sendMessage,
@@ -97,6 +112,42 @@ class _GeminiChatState extends State<GeminiChat> {
             ChatMedia(url: imageFile.path, fileName: "", type: MediaType.image)
           ]);
       _sendMessage(chatMessage);
+    }
+  }
+
+  void _loadInterstitialAd() {
+    InterstitialAd.load(
+      adUnitId: 'ca-app-pub-5337891432503610/5618735445',
+      request: AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          _interstitialAd = ad;
+          _isInterstitialAdReady = true;
+          _interstitialAd?.fullScreenContentCallback =
+              FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) {
+              _loadInterstitialAd();
+            },
+          );
+        },
+        onAdFailedToLoad: (err) {
+          print('Failed to load an interstitial ad: ${err.message}');
+          _isInterstitialAdReady = false;
+        },
+      ),
+    );
+  }
+
+  void _showInterstitialAd() {
+    try {
+      _interstitialAd?.show();
+      print(_isInterstitialAdReady);
+      if (_isInterstitialAdReady) {
+      } else {
+        print('Interstitial ad is not ready yet.');
+      }
+    } catch (e) {
+      print('ESTE ES EL ERROR $e');
     }
   }
 }

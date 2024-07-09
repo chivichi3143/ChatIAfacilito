@@ -7,6 +7,9 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher" 
         android:enableOnBackInvokedCallback="true">
+           <meta-data
+        android:name="com.google.android.gms.ads.APPLICATION_ID"
+        android:value="ca-app-pub-5337891432503610~1662791529"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -15,6 +18,7 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
+            
             <meta-data
             android:name="io.flutter.embedding.android.NormalTheme"
             android:resource="@style/NormalTheme"
@@ -22,6 +26,7 @@
             <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="default" />
+          
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

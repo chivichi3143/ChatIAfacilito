@@ -16,8 +16,7 @@ class ForgotPasswordButton extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) {
-                // return const ForgotPasswordPage();
-                return const HomePage();
+                return const ForgotPasswordPage();
               },
             ),
           );
